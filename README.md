@@ -14,7 +14,7 @@ starts on its own. When it finishes it prints a link to open on your devices.
 
 | System | Build | Runs as |
 |---|---|---|
-| macOS 13 or later, Apple silicon or Intel | `markhor-macos-universal` | a launchd agent, while you are logged in |
+| macOS 13 or later, Apple silicon or Intel | `markhor-macos-universal`, with the menu bar app | a launchd agent, while you are logged in |
 | Linux, x86_64 or arm64 | `markhor-linux-x86_64`, `markhor-linux-aarch64` (static, any distro) | a systemd user service |
 | Windows | Use the Linux build inside [WSL](https://learn.microsoft.com/windows/wsl/install) with systemd on | a systemd user service in WSL |
 
@@ -35,13 +35,14 @@ curl -fsSL https://markhor.cc/install | sh -s -- --harness claude --harness code
 | `--peer-origin ORIGIN` | Lets another Markhor (for example your laptop's) reach this one. |
 | `--tailscale-https` | Serves Markhor over HTTPS on your tailnet. |
 | `--dry-run` | macOS only. Shows what it would do. Nothing is written. |
-| `--uninstall` | macOS only. Stops Markhor and removes the launchd agent. Your data stays. |
+| `--uninstall` | macOS only. Stops Markhor, removes the launchd agent and the menu bar app. Your data stays. |
 
 ## What it installs
 
 | What | Where |
 |---|---|
 | The `markhor` program | `~/.local/bin/markhor` |
+| The menu bar app (macOS) | `/Applications/Markhor.app`, or `~/Applications` if `/Applications` isn't writable |
 | The web UI | `~/.local/share/markhor/web` |
 | Settings | `~/.config/markhor/markhor.env` |
 | Your chats and history | `~/.markhor` |
